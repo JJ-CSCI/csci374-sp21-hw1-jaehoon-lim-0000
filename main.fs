@@ -9,12 +9,14 @@ let rec tribn n =
     else tribn (n-1) + tribn (n-2) + tribn (n-3) 
 // Problem 2
 let tribn2 n = 
-  let result = tribn n
   if n <= 0 then 0
   else if n = 1 then 1
   else if n = 2 then 1
-  else
-  result
+  else  let result = tribn n::tribn (n-1)::tribn (n-2)::[]
+        if n > 3
+        then List.head result 
+        else List.head result
+  
   
 
     // write your code here
